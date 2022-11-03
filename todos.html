@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>beautyYU</title>
+    <link rel="stylesheet" href="bootstrap5.2.2.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="icon" href="property/icon/beautyyu icon.png" type="image/x-icon" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg shadow-sm">
+      <div class="container">
+        <a class="navbar-brand" href="#"> <img src="property/icon/beautyyu icon.png" alt="Logo" width="30" class="d-inline-block align-text-top" />beautyYU</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="home.html">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="portofolio.html">PORTOFOLIO</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html">BLOG</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about_us.html">ABOUT US</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">CONTACT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="todos.html">TODOS</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <br />
+
+    <section class="todos">
+      <div class="container text-left">
+          <div class="row justify-content-md-center">
+            <div class="col-md-6">
+              <h2>TO DO</h2>
+              <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Judul</label>
+                  <input type="text" class="form-control" id="judul">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Tanggal</label>
+                  <input type="date" class="form-control" id="tanggal">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleFormControlTextarea1" class="form-label">Deskripsi</label>
+                  <textarea class="form-control" id="deskripsi" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-light" onclick="save()">Send</button>
+            </div>
+          </div>
+  </section>
+  <br /><br />
+
+    <footer class="d-flex align-items-center position-relative">
+      <div class="container-fluid">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 text-center">
+              <img src="property/icon/beautyyu icon.png" alt="Logo" />
+              <a href="home.html">beautyYU</a>
+              <p>Copyright by Yuli Monalisa Tambun All Right Reserved.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="bootstrap5.2.2.min.js"></script>
+
+    <script>
+      function save (){
+        let judul = document.getElementById('judul').value;
+        let tanggal = document.getElementById('tanggal').value;
+        let deskripsi = document.getElementById('deskripsi').value;
+
+        let data={
+          judul:judul,
+          tanggal:tanggal,
+          deskripsi:deskripsi
+        };
+        
+        let arr=[];
+        if(!localStorage.getItem('data')) {
+                    arr.push(data);
+                    localStorage.setItem('data', JSON.stringify(arr));
+                } else {
+                    arr = JSON.parse(localStorage.getItem('data'));
+                    arr.push(data);
+                    localStorage.setItem('data', JSON.stringify(arr));
+                }
+      }
+    </script>
+  </body>
+</html>
